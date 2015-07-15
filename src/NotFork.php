@@ -12,7 +12,16 @@ class NotFork
 
     public function run($data)
     {
+        $counter = $this->counter;
         $data_array = str_split($data);
-        var_dump($data_array);
+
+        foreach ($data_array as $key => $only_data) {
+            if ($only_data != 'x' and $only_data != '.') {
+                $int_data = intval($only_data);
+                $counter[$key+1] = $int_data;
+            }
+        }
+
+        var_dump($counter);
     }
 }
