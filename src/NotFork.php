@@ -18,36 +18,33 @@ class NotFork
         $x_counter = $this->counter;
         $data_array = str_split($data);
 
+        $first = 0;
         foreach ($data_array as $key => $only_data) {
             if ($only_data != 'x' and $only_data != '.') {
                 $int_data = intval($only_data);
 
-                if ($key < 5) {
-                    $counter[$key+1] = $int_data;
+                if ($first === 0) {
+                    $counter[1] += $int_data;
+                    $first += 1;
                 }
 
                 else {
                     $sort_counter = $counter;
-                    sort($sort_counter);
+                    asort($sort_counter);
                     continue;
                 }
             }
 
             elseif ($only_data === 'x') {
-                if ($key < 5) {
                     $x_counter[$key+1] += 1;
-                }
             }
 
             elseif ($only_data === '.') {
-                if ($key < 5) {
                     $counter = $this->register($counter);
-                }
             }
         }
 
         $counter = $this->plusXValue($counter, $x_counter);
-        var_dump($counter);
     }
 
     public function register($counter)
