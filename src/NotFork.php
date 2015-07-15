@@ -9,6 +9,7 @@ namespace TripleI\NotFork;
 class NotFork
 {
     private $counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
+    private $minus = array("1" => 2, "2" => 7, "3" => 3, "4" => 5, "5" => 2);
 
     public function run($data)
     {
