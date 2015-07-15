@@ -26,4 +26,5 @@ class NotForkTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('\TripleI\NotFork\Exception\LogicException');
         throw new Exception\LogicException;
     }
+    
 }
