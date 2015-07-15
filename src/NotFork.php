@@ -15,7 +15,7 @@ class NotFork
     public function run($data)
     {
         $counter = $this->counter;
-        $x_counter = $this->counter;
+        $x_counter = $this->x_counter;
         $data_array = str_split($data);
 
         $first = 0;
