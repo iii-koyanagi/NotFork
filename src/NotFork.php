@@ -46,12 +46,7 @@ class NotFork
             }
         }
 
-        $counter[1] = $counter[1] + $x_counter[1];
-        $counter[2] = $counter[2] + $x_counter[2];
-        $counter[3] = $counter[3] + $x_counter[3];
-        $counter[4] = $counter[4] + $x_counter[4];
-        $counter[5] = $counter[5] + $x_counter[5];
-
+        $counter = $this->plusXValue($counter, $x_counter);
         var_dump($counter);
     }
 
@@ -59,7 +54,7 @@ class NotFork
     {
         $minus = $this->minus;
 
-        for ($i = 1; $i < 6; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             $counter[$i] = $counter[$i] - $minus[$i];
         }
 
@@ -67,6 +62,15 @@ class NotFork
             if ($only_counter < 0) {
                 $counter[$keys] = 0;
             }
+        }
+
+        return $counter;
+    }
+
+    public function plusXValue($counter, $x_counter)
+    {
+        for ($i = 1; $i <= 5; $i++) {
+            $counter[$i] = $counter[$i] + $x_counter[$i];
         }
 
         return $counter;
