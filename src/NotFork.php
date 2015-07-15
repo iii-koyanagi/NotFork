@@ -18,10 +18,17 @@ class NotFork
         foreach ($data_array as $key => $only_data) {
             if ($only_data != 'x' and $only_data != '.') {
                 $int_data = intval($only_data);
-                $counter[$key+1] = $int_data;
+
+                if ($key < 5) {
+                    $counter[$key+1] = $int_data;
+                }
+
+                else {
+                    $sort_counter = $counter;
+                    sort($sort_counter);
+                    continue;
+                }
             }
         }
-
-        var_dump($counter);
     }
 }
