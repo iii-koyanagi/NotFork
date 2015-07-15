@@ -19,7 +19,7 @@ class NotForkTest extends \PHPUnit_Framework_TestCase
     {
         $app = $this->skeleton;
 
-        $app->run("31.");
+        $app->run("3x.");
 
 //        foreach ($this->getData() as $data) {
 //            $app->run($data);
