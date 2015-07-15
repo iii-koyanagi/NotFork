@@ -14,6 +14,7 @@ class NotFork
     public function run($data)
     {
         $counter = $this->counter;
+        $minus = $this->minus;
         $data_array = str_split($data);
 
         foreach ($data_array as $key => $only_data) {
@@ -30,6 +31,30 @@ class NotFork
                     continue;
                 }
             }
+
+            elseif ($only_data === 'x') {
+                if ($key < 5) {
+                
+                }
+            }
+
+            elseif ($only_data === '.') {
+                if ($key < 5) {
+                    $counter[1] = $counter[1] - $minus[1];
+                    $counter[2] = $counter[2] - $minus[2];
+                    $counter[3] = $counter[3] - $minus[3];
+                    $counter[4] = $counter[4] - $minus[4];
+                    $counter[5] = $counter[5] - $minus[5];
+
+                    foreach ($counter as $keys => $only_counter) {
+                        if ($only_counter < 0) {
+                            $counter[$keys] = 0;
+                        }
+                    }
+                }
+            }
         }
+
+        var_dump($counter);
     }
 }
