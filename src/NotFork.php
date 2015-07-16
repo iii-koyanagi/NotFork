@@ -32,15 +32,15 @@ class NotFork
                 $counter = $this->register($counter);
             }
         }
-        $string_counter = $this->arrayToString($counter);
 
+        $string_counter = $this->arrayToString($counter);
         $this->string_counter = $string_counter;
     }
 
     public function register($counter)
     {
         $minus = $this->minus;
-
+        
         for ($i = 1; $i <= 5; $i++) {
             $counter[$i] = $counter[$i] - $minus[$i];
         }
@@ -50,12 +50,13 @@ class NotFork
                 $counter[$keys] = 0;
             }
         }
-
         return $counter;
     }
 
     public function sortAndAdd($counter, $only_data)
     {
+        $x_counter = $this->x_counter;
+
         if ($only_data === 'x') {
             $int_data = 1;
         }
@@ -66,8 +67,8 @@ class NotFork
         $sort_counter = $counter;
         asort($sort_counter);
         $shift_sort_counter = array_shift($sort_counter);
-
         $key_arr = array();
+
         foreach ($counter as $counter_key => $only_counter) {
             if ($shift_sort_counter == $only_counter) {
                 $key_arr[] = $counter_key;
@@ -76,16 +77,23 @@ class NotFork
 
         if (count($key_arr) === 1) {
             $counter[$key_arr[0]] += $int_data;
+
+            if ($only_data === 'x') {
+                $x_counter[$key_arr[0]] += 1;
+            }
         }
 
         else {
             $sort_key_arr = $key_arr;
             asort($sort_key_arr);
             $shift_key_arr = array_shift($sort_key_arr);
-
             $counter[$shift_key_arr] += $int_data;
-        }
 
+            if ($only_data === 'x') {
+                $x_counter[$shift_key_arr] += 1;
+            }
+        }
+        $this->x_counter = $x_counter;
         return $counter;
     }
 
