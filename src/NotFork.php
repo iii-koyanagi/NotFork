@@ -10,6 +10,7 @@ class NotFork
 {
     private $counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
     private $x_counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
+    private $x_memory = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
     private $minus = array("1" => 2, "2" => 7, "3" => 3, "4" => 5, "5" => 2);
 
     var $string_counter;
@@ -62,6 +63,7 @@ class NotFork
     public function sortAndAdd($counter, $only_data)
     {
         $x_counter = $this->x_counter;
+        $x_memory = $this->x_memory;
 
         if ($only_data === 'x') {
             $int_data = 1;
@@ -83,6 +85,11 @@ class NotFork
 
         if (count($key_arr) === 1) {
             if ($only_data === 'x') {
+                if ($x_memory[$key_arr[0]] === 0) {
+                    $x_memory[$key_arr[0]] = $counter[$key_arr[0]];
+
+                    $this->x_memory = $x_memory;
+                }
                 $x_counter[$key_arr[0]] += 1;
             }
 
