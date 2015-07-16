@@ -8,7 +8,7 @@ namespace TripleI\NotFork;
 
 class NotFork
 {
-    private $counter = array("1" => 1, "2" => 2, "3" => 3, "4" => 4, "5" => 5);
+    private $counter = array("1" => 1, "2" => 3, "3" => 2, "4" => 4, "5" => 2);
     private $x_counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
     private $minus = array("1" => 2, "2" => 7, "3" => 3, "4" => 5, "5" => 2);
 
@@ -31,22 +31,42 @@ class NotFork
                 else {
                     $sort_counter = $counter;
                     asort($sort_counter);
-                    $shift = array_shift($sort_counter);
+                    $shift_sort_counter = array_shift($sort_counter);
 
-                    continue;
+                    $key_arr = array();
+                    foreach ($counter as $counter_key => $only_counter) {
+                        if ($shift_sort_counter == $only_counter) {
+                            $key_arr[] = $counter_key;
+                        }
+                    }
+
+                    if (count($key_arr) === 1) {
+                        $counter[$key_arr[0]] += $int_data;
+                    }
+
+                    else {
+                        $sort_key_arr = $key_arr;
+                        asort($sort_key_arr);
+                        $shift_key_arr = array_shift($sort_key_arr);
+
+                        $counter[$shift_key_arr] += $int_data;
+                    }
                 }
             }
 
-//            elseif ($only_data === 'x') {
-//                    $x_counter[$key+1] += 1;
-//            }
-//
-//            elseif ($only_data === '.') {
-//                    $counter = $this->register($counter);
-//            }
+            elseif ($only_data === 'x') {
+                    $x_counter[$key+1] += 1;
+            }
+
+            elseif ($only_data === '.') {
+                    $counter = $this->register($counter);
+            }
         }
 
+
         $counter = $this->plusXValue($counter, $x_counter);
+
+        var_dump($counter);
     }
 
     public function register($counter)
