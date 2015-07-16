@@ -57,7 +57,29 @@ class NotFork
             }
 
             elseif ($only_data === 'x') {
-                $x_counter[$key+1] += 1;
+                $sort_counter = $counter;
+                asort($sort_counter);
+                $shift_sort_counter = array_shift($sort_counter);
+
+                $key_arr = array();
+                foreach ($counter as $counter_key => $only_counter) {
+                    if ($shift_sort_counter == $only_counter) {
+                        $key_arr[] = $counter_key;
+                    }
+                }
+
+                if (count($key_arr) === 1) {
+                    $x_counter[$key_arr[0]] += 1;
+                }
+
+                else {
+                    $sort_key_arr = $key_arr;
+                    asort($sort_key_arr);
+                    $shift_key_arr = array_shift($sort_key_arr);
+
+                    $x_counter[$shift_key_arr] += 1;
+                }
+
             }
 
             elseif ($only_data === '.') {
