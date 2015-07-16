@@ -82,22 +82,23 @@ class NotFork
         }
 
         if (count($key_arr) === 1) {
-            $counter[$key_arr[0]] += $int_data;
-
             if ($only_data === 'x') {
                 $x_counter[$key_arr[0]] += 1;
             }
+
+            $counter[$key_arr[0]] += $int_data;
         }
 
         else {
             $sort_key_arr = $key_arr;
             asort($sort_key_arr);
             $shift_key_arr = array_shift($sort_key_arr);
-            $counter[$shift_key_arr] += $int_data;
 
             if ($only_data === 'x') {
                 $x_counter[$shift_key_arr] += 1;
             }
+
+            $counter[$shift_key_arr] += $int_data;
         }
         $this->x_counter = $x_counter;
         return $counter;
