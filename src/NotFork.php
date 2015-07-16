@@ -28,8 +28,6 @@ class NotFork
             else{
                 $counter = $this->register($counter);
             }
-
-            var_dump($counter);
         }
 
         $string_counter = $this->arrayToString($counter);
@@ -48,7 +46,7 @@ class NotFork
             }
 
             else {
-                var_dump($x_memory[$i]);
+                $x_memory[$i];
             }
         }
 
