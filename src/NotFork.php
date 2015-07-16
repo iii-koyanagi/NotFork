@@ -12,6 +12,8 @@ class NotFork
     private $x_counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
     private $minus = array("1" => 2, "2" => 7, "3" => 3, "4" => 5, "5" => 2);
 
+    var $string_counter;
+
     public function run($data)
     {
         $counter = $this->counter;
@@ -64,6 +66,8 @@ class NotFork
         }
         $counter = $this->plusXValue($counter, $x_counter);
         $string_counter = $this->arrayToString($counter);
+
+        $this->string_counter = $string_counter;
     }
 
     public function register($counter)
@@ -96,5 +100,10 @@ class NotFork
     {
         $string_counter = implode(",", $counter);
         return $string_counter;
+    }
+
+    public function getStringCounter()
+    {
+        return $this->string_counter;
     }
 }

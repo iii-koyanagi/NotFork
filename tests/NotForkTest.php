@@ -20,10 +20,11 @@ class NotForkTest extends \PHPUnit_Framework_TestCase
         $app = $this->skeleton;
 
         $app->run(".5.568");
+        var_dump($app->getStringCounter());
 
 //        foreach ($this->getData() as $data) {
 //            $app->run($data);
-//            $this->assertEquals($app->getTotalFee(), $data[1]);
+//            $this->assertEquals($app->getStringCounter(), $data[1]);
 //        }
     }
 
