@@ -51,7 +51,13 @@ class NotFork
                 $counter[$keys] = 0;
             }
         }
-        
+
+        for ($i = 1; $i <= 5; $i++) {
+            if ($x_counter[$i] > $counter[$i]) {
+                 $counter[$i] = $x_counter[$i];
+            }
+        }
+
         return $counter;
     }
 
