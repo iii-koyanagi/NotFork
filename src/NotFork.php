@@ -23,8 +23,8 @@ class NotFork
             if ($only_data != '.') {
                 $counter = $this->sortAndAdd($counter, $only_data);
             }
-            
-            elseif ($only_data === '.') {
+
+            else{
                 $counter = $this->register($counter);
             }
         }
@@ -40,7 +40,7 @@ class NotFork
 
         for ($i = 1; $i <= 5; $i++) {
             if ($x_counter[$i] == 0) {
-            $counter[$i] = $counter[$i] - $minus[$i];
+                $counter[$i] = $counter[$i] - $minus[$i];
             }
         }
 
@@ -52,7 +52,7 @@ class NotFork
 
         for ($i = 1; $i <= 5; $i++) {
             if ($x_counter[$i] > $counter[$i]) {
-                 $counter[$i] = $x_counter[$i];
+                $counter[$i] = $x_counter[$i];
             }
         }
 
