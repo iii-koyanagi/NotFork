@@ -40,6 +40,7 @@ class NotFork
     public function register($counter)
     {
         $minus = $this->minus;
+        $x_counter = $this->x_counter;
 
         for ($i = 1; $i <= 5; $i++) {
             $counter[$i] = $counter[$i] - $minus[$i];
@@ -49,8 +50,8 @@ class NotFork
             if ($only_counter < 0) {
                 $counter[$keys] = 0;
             }
-
         }
+        
         return $counter;
     }
 
