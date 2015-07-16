@@ -55,18 +55,15 @@ class NotFork
             }
 
             elseif ($only_data === 'x') {
-                    $x_counter[$key+1] += 1;
+                $x_counter[$key+1] += 1;
             }
 
             elseif ($only_data === '.') {
-                    $counter = $this->register($counter);
+                $counter = $this->register($counter);
             }
         }
-
-
         $counter = $this->plusXValue($counter, $x_counter);
-
-        var_dump($counter);
+        $string_counter = $this->arrayToString($counter);
     }
 
     public function register($counter)
@@ -93,5 +90,11 @@ class NotFork
         }
 
         return $counter;
+    }
+
+    public function arrayToString($counter)
+    {
+        $string_counter = implode(",", $counter);
+        return $string_counter;
     }
 }
