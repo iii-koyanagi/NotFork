@@ -38,6 +38,7 @@ class NotFork
     {
         $minus = $this->minus;
         $x_counter = $this->x_counter;
+        $x_memory = $this->x_memory;
 
         for ($i = 1; $i <= 5; $i++) {
             if ($x_counter[$i] == 0) {
