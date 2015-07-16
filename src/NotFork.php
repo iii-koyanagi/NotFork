@@ -43,7 +43,9 @@ class NotFork
         $x_counter = $this->x_counter;
 
         for ($i = 1; $i <= 5; $i++) {
+            if ($x_counter[$i] == 0) {
             $counter[$i] = $counter[$i] - $minus[$i];
+            }
         }
 
         foreach ($counter as $keys => $only_counter) {
