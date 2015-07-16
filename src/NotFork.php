@@ -20,14 +20,10 @@ class NotFork
         $data_array = str_split($data);
 
         foreach ($data_array as $only_data) {
-            if ($only_data != 'x' and $only_data != '.') {
+            if ($only_data != '.') {
                 $counter = $this->sortAndAdd($counter, $only_data);
             }
-
-            elseif ($only_data === 'x') {
-                $counter = $this->sortAndAdd($counter, $only_data);
-            }
-
+            
             elseif ($only_data === '.') {
                 $counter = $this->register($counter);
             }
