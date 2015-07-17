@@ -143,4 +143,15 @@ class NotFork
     {
         return $this->string_counter;
     }
+
+    public function remove()
+    {
+        $counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
+        $x_counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
+        $x_memory = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
+
+        $this->counter = $counter;
+        $this->x_counter = $x_counter;
+        $this->x_memory = $x_memory;
+    }
 }
