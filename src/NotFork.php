@@ -54,7 +54,9 @@ class NotFork
 
                 else {
                     $sabun = $x_memory[$i] - $minus[$i];
-                    $new = $sabun + $x_counter[$i];
+                    $a = $counter[$i] - $x_memory[$i];
+
+                    $new = $sabun + $a;
 
                     $counter[$i] = $new;
                     $x_memory[$i] = $sabun;
