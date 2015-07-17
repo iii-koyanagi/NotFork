@@ -18,14 +18,13 @@ class NotForkTest extends \PHPUnit_Framework_TestCase
     public function testRun()
     {
         $app = $this->skeleton;
+        $data = $this->getData();
 
-//        foreach ($this->getData() as $data) {
-//            $app->run($data);
-//            $this->assertEquals($app->getStringCounter(), $data[1]);
-//        }
-        $app->run('987x654x.32');
-        var_dump($app->getStringCounter());
-
+        foreach ($data as $key => $value) {
+            $str_key = strval($key);
+            $app->run($str_key);
+            $this->assertEquals($app->getStringCounter(), $value);
+        }
     }
 
     public function getData()
