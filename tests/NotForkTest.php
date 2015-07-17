@@ -26,7 +26,7 @@ class NotForkTest extends \PHPUnit_Framework_TestCase
 //            $app->remove();
 //        }
 
-        $app->run('99569x33.');
+        $app->run('.5.3x82x32.1829..');
         var_dump($app->getStringCounter());
     }
 
