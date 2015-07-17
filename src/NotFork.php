@@ -46,7 +46,14 @@ class NotFork
             }
 
             else {
-                $x_memory[$i];
+                if ($x_memory[$i] - $minus[$i] < 0) {
+                    $counter[$i] = $counter[$i] - $x_memory[$i];
+                    $x_memory[$i] = 0;
+                    $this->x_memory = $x_memory;
+                }
+
+
+                
             }
         }
 
