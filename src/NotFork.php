@@ -106,7 +106,7 @@ class NotFork
 
         if (count($key_arr) === 1) {
             if ($only_data === 'x') {
-                if ($x_memory[$key_arr[0]] === 0) {
+                if ($x_counter[$key_arr[0]] === 0) {
                     $x_memory[$key_arr[0]] = $counter[$key_arr[0]];
                     $this->x_memory = $x_memory;
                 }
@@ -122,7 +122,7 @@ class NotFork
             $shift_key_arr = array_shift($sort_key_arr);
 
             if ($only_data === 'x') {
-                if ($x_memory[$shift_key_arr] === 0) {
+                if ($x_counter[$shift_key_arr] === 0) {
                     $x_memory[$shift_key_arr] = $counter[$shift_key_arr];
                     $this->x_memory = $x_memory;
                 }
