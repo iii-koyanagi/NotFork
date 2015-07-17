@@ -52,8 +52,15 @@ class NotFork
                     $this->x_memory = $x_memory;
                 }
 
+                else {
+                    $sabun = $x_memory[$i] - $minus[$i];
+                    $new = $sabun + $x_counter[$i];
 
+                    $counter[$i] = $new;
+                    $x_memory[$i] = $sabun;
 
+                    $this->x_memory = $x_memory;
+                }
             }
         }
 
