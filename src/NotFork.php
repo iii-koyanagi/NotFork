@@ -96,7 +96,7 @@ class NotFork
         $sort_counter = $counter;
         asort($sort_counter);
         $shift_sort_counter = array_shift($sort_counter);
-        $key_arr = array();
+        $key_arr = [];
 
         foreach ($counter as $counter_key => $only_counter) {
             if ($shift_sort_counter == $only_counter) {
@@ -148,9 +148,9 @@ class NotFork
 
     public function remove()
     {
-        $counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
-        $x_counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
-        $x_memory = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
+        $counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
+        $x_counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
+        $x_memory = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
 
         $this->counter = $counter;
         $this->x_counter = $x_counter;
