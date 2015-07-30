@@ -18,8 +18,20 @@ class NotFork
     public function run($data)
     {
         $counter = $this->counter;
-        $data_array = str_split($data);
+        $data_array = $this->dataToArray($data);
+        $counter = $this->counterCalc($counter, $data_array);
+        $string_counter = $this->arrayToString($counter);
+        $this->string_counter = $string_counter;
+    }
 
+    public function dataToArray($data)
+    {
+        $data_array = str_split($data);
+        return $data_array;
+    }
+
+    public function counterCalc($counter, $data_array)
+    {
         foreach ($data_array as $only_data) {
             if ($only_data != '.') {
                 $counter = $this->sortAndAdd($counter, $only_data);
@@ -30,8 +42,7 @@ class NotFork
             }
         }
 
-        $string_counter = $this->arrayToString($counter);
-        $this->string_counter = $string_counter;
+        return $counter;
     }
 
     public function register($counter)
