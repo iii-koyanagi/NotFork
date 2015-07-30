@@ -8,10 +8,10 @@ namespace TripleI\NotFork;
 
 class NotFork
 {
-    private $counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
-    private $x_counter = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
-    private $x_memory = array("1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0);
-    private $minus = array("1" => 2, "2" => 7, "3" => 3, "4" => 5, "5" => 2);
+    private $counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
+    private $x_counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
+    private $x_memory = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
+    private $minus = ["1" => 2, "2" => 7, "3" => 3, "4" => 5, "5" => 2];
 
     var $string_counter;
 
