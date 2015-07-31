@@ -34,7 +34,7 @@ class NotFork
     {
         foreach ($data_array as $only_data) {
             if ($only_data != '.') {
-                $counter = $this->sortAndAdd($counter, $only_data);
+                $counter = $this->check($counter, $only_data);
             }
             else{
                 $counter = $this->register($counter);
@@ -88,7 +88,7 @@ class NotFork
         return $counter;
     }
 
-    public function sortAndAdd($counter, $only_data)
+    public function check($counter, $only_data)
     {
         $x_counter = $this->x_counter;
         $x_memory = $this->x_memory;
@@ -100,9 +100,7 @@ class NotFork
             $int_data = intval($only_data);
         }
 
-        $sort_counter = $counter;
-        asort($sort_counter);
-        $shift_sort_counter = array_shift($sort_counter);
+        $shift_sort_counter = $this->sort($counter);
         $key_arr = [];
 
         foreach ($counter as $counter_key => $only_counter) {
@@ -124,9 +122,7 @@ class NotFork
         }
 
         else {
-            $sort_key_arr = $key_arr;
-            asort($sort_key_arr);
-            $shift_key_arr = array_shift($sort_key_arr);
+            $shift_key_arr = $this->sort($key_arr);
 
             if ($only_data === 'x') {
                 if ($x_counter[$shift_key_arr] === 0) {
@@ -139,6 +135,15 @@ class NotFork
         }
         $this->x_counter = $x_counter;
         return $counter;
+    }
+
+    public function sort($value)
+    {
+        $value_for_sort = $value;
+        asort($value_for_sort);
+        $shift_value = array_shift($value_for_sort);
+
+        return $shift_value;
     }
 
     public function arrayToString($counter)
