@@ -72,12 +72,23 @@ class NotFork
             }
         }
 
+        $this->counterToZero($counter);
+        $counter = $this->xEqualizer($x_counter, $counter);
+
+        return $counter;
+    }
+
+    public function counterToZero($counter)
+    {
         foreach ($counter as $keys => $only_counter) {
             if ($only_counter < 0) {
                 $counter[$keys] = 0;
             }
         }
+    }
 
+    public function xEqualizer($x_counter, $counter)
+    {
         for ($i = 1; $i <= 5; $i++) {
             if ($x_counter[$i] > $counter[$i]) {
                 $counter[$i] = $x_counter[$i];
