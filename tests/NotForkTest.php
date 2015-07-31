@@ -23,7 +23,6 @@ class NotForkTest extends \PHPUnit_Framework_TestCase
         foreach ($data as $key => $value) {
             $app->run($key);
             $this->assertEquals($app->getStringCounter(), $value);
-            $app->remove();
         }
     }
 

@@ -22,6 +22,7 @@ class NotFork
         $counter = $this->counterCalc($counter, $data_array);
         $string_counter = $this->arrayToString($counter);
         $this->string_counter = $string_counter;
+        $this->remove();
     }
 
     public function dataToArray($data)
@@ -157,12 +158,8 @@ class NotFork
 
     public function remove()
     {
-        $counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
-        $x_counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
-        $x_memory = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
-
-        $this->counter = $counter;
-        $this->x_counter = $x_counter;
-        $this->x_memory = $x_memory;
+        $this->counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
+        $this->x_counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
+        $this->x_memory = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
     }
 }
