@@ -36,12 +36,10 @@ class NotFork
             if ($only_data != '.') {
                 $counter = $this->sortAndAdd($counter, $only_data);
             }
-
             else{
                 $counter = $this->register($counter);
             }
         }
-
         return $counter;
     }
 
@@ -56,24 +54,22 @@ class NotFork
                 $counter[$i] = $counter[$i] - $minus[$i];
             }
 
+            elseif($x_memory[$i] - $minus[$i] < 0) {
+                $counter[$i] = $counter[$i] - $x_memory[$i];
+                $x_memory[$i] = 0;
+                $this->x_memory = $x_memory;
+            }
+
             else {
-                if ($x_memory[$i] - $minus[$i] < 0) {
-                    $counter[$i] = $counter[$i] - $x_memory[$i];
-                    $x_memory[$i] = 0;
-                    $this->x_memory = $x_memory;
-                }
+                $sabun = $x_memory[$i] - $minus[$i];
+                $a = $counter[$i] - $x_memory[$i];
 
-                else {
-                    $sabun = $x_memory[$i] - $minus[$i];
-                    $a = $counter[$i] - $x_memory[$i];
+                $new = $sabun + $a;
 
-                    $new = $sabun + $a;
+                $counter[$i] = $new;
+                $x_memory[$i] = $sabun;
 
-                    $counter[$i] = $new;
-                    $x_memory[$i] = $sabun;
-
-                    $this->x_memory = $x_memory;
-                }
+                $this->x_memory = $x_memory;
             }
         }
 
@@ -139,7 +135,6 @@ class NotFork
                 }
                 $x_counter[$shift_key_arr] += 1;
             }
-
             $counter[$shift_key_arr] += $int_data;
         }
         $this->x_counter = $x_counter;
