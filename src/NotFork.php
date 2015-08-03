@@ -41,7 +41,7 @@ class NotFork
                 $counter = $this->register($counter);
             }
             else{
-                $counter = $this->countAndMemForX($counter, $only_data);
+                $counter = $this->counterAdd($counter, $only_data);
             }
         }
 
@@ -99,7 +99,7 @@ class NotFork
         return $counter;
     }
 
-    public function countAndMemForX($counter, $only_data)
+    public function counterAdd($counter, $only_data)
     {
         $x_counter = $this->x_counter;
         $x_memory = $this->x_memory;
