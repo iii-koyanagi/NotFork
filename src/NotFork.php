@@ -11,9 +11,11 @@ class NotFork
     private $counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
     private $x_counter = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
     private $x_memory = ["1" => 0, "2" => 0, "3" => 0, "4" => 0, "5" => 0];
-    private $minus = ["1" => 2, "2" => 7, "3" => 3, "4" => 5, "5" => 2];
-
     var $string_counter;
+
+    function __construct() {
+        define ("MINUS", serialize (["1" => 2, "2" => 7, "3" => 3, "4" => 5, "5" => 2]));
+    }
 
     public function run($data)
     {
@@ -48,7 +50,7 @@ class NotFork
 
     public function register($counter)
     {
-        $minus = $this->minus;
+        $minus = unserialize (MINUS);
         $x_counter = $this->x_counter;
         $x_memory = $this->x_memory;
 
