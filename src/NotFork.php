@@ -106,12 +106,7 @@ class NotFork
 
         $int_data = $this->getIntData($only_data);
         $shift_sort_counter = $this->sort($counter);
-        $key_arr = [];
-        foreach ($counter as $counter_key => $only_counter) {
-            if ($shift_sort_counter == $only_counter) {
-                $key_arr[] = $counter_key;
-            }
-        }
+        $key_arr = $this->getKeyArr($counter, $shift_sort_counter);
 
         $val = $this->getVal($key_arr);
         if ($only_data === 'x') {
@@ -125,6 +120,18 @@ class NotFork
         $this->x_counter = $x_counter;
 
         return $counter;
+    }
+
+    public function getKeyArr($counter, $shift_sort_counter)
+    {
+        $key_arr = [];
+        foreach ($counter as $counter_key => $only_counter) {
+            if ($shift_sort_counter == $only_counter) {
+                $key_arr[] = $counter_key;
+            }
+        }
+
+        return $key_arr;
     }
 
     public function getVal($key_arr)
