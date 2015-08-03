@@ -71,10 +71,8 @@ class NotFork
                 $this->x_memory = $x_memory;
             }
         }
-
         $this->counterReset($counter);
         $counter = $this->xEqualizer($x_counter, $counter);
-
         return $counter;
     }
 
@@ -94,7 +92,6 @@ class NotFork
                 $counter[$i] = $x_counter[$i];
             }
         }
-
         return $counter;
     }
 
@@ -103,16 +100,9 @@ class NotFork
         $x_counter = $this->x_counter;
         $x_memory = $this->x_memory;
 
-        if ($only_data === 'x') {
-            $int_data = 1;
-        }
-        else {
-            $int_data = intval($only_data);
-        }
-
+        $int_data = $this->getIntData($only_data);
         $shift_sort_counter = $this->sort($counter);
         $key_arr = [];
-
         foreach ($counter as $counter_key => $only_counter) {
             if ($shift_sort_counter == $only_counter) {
                 $key_arr[] = $counter_key;
@@ -127,13 +117,11 @@ class NotFork
                 }
                 $x_counter[$key_arr[0]] += 1;
             }
-
             $counter[$key_arr[0]] += $int_data;
         }
 
         else {
             $shift_key_arr = $this->sort($key_arr);
-
             if ($only_data === 'x') {
                 if ($x_counter[$shift_key_arr] === 0) {
                     $x_memory[$shift_key_arr] = $counter[$shift_key_arr];
@@ -145,6 +133,18 @@ class NotFork
         }
         $this->x_counter = $x_counter;
         return $counter;
+    }
+
+    public function getIntData($only_data)
+    {
+        if ($only_data === 'x') {
+            $int_data = 1;
+        }
+        else {
+            $int_data = intval($only_data);
+        }
+
+        return $int_data;
     }
 
     public function sort($value)
