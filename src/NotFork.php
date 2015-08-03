@@ -72,13 +72,13 @@ class NotFork
             }
         }
 
-        $this->counterToZero($counter);
+        $this->counterReset($counter);
         $counter = $this->xEqualizer($x_counter, $counter);
 
         return $counter;
     }
 
-    public function counterToZero($counter)
+    public function counterReset($counter)
     {
         foreach ($counter as $keys => $only_counter) {
             if ($only_counter < 0) {
