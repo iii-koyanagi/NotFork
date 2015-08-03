@@ -28,7 +28,7 @@ class NotFork
     public function dataToArray($data)
     {
         $data_array = str_split($data);
-        
+
         return $data_array;
     }
 
@@ -114,27 +114,22 @@ class NotFork
         }
 
         if (count($key_arr) === 1) {
-            if ($only_data === 'x') {
-                if ($x_counter[$key_arr[0]] === 0) {
-                    $x_memory[$key_arr[0]] = $counter[$key_arr[0]];
-                    $this->x_memory = $x_memory;
-                }
-                $x_counter[$key_arr[0]] += 1;
-            }
-            $counter[$key_arr[0]] += $int_data;
+            $val = $key_arr[0];
         }
 
         else {
             $shift_key_arr = $this->sort($key_arr);
-            if ($only_data === 'x') {
-                if ($x_counter[$shift_key_arr] === 0) {
-                    $x_memory[$shift_key_arr] = $counter[$shift_key_arr];
-                    $this->x_memory = $x_memory;
-                }
-                $x_counter[$shift_key_arr] += 1;
-            }
-            $counter[$shift_key_arr] += $int_data;
+            $val = $shift_key_arr;
         }
+
+        if ($only_data === 'x') {
+            if ($x_counter[$val] === 0) {
+                $x_memory[$val] = $counter[$val];
+                $this->x_memory = $x_memory;
+            }
+            $x_counter[$val] += 1;
+        }
+        $counter[$val] += $int_data;
         $this->x_counter = $x_counter;
 
         return $counter;
