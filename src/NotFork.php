@@ -110,9 +110,8 @@ class NotFork
                 $key_arr[] = $counter_key;
             }
         }
-
+        
         $val = $this->getVal($key_arr);
-
         if ($only_data === 'x') {
             if ($x_counter[$val] === 0) {
                 $x_memory[$val] = $counter[$val];
