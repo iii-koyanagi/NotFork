@@ -37,11 +37,11 @@ class NotFork
     public function branch($counter, $data_array)
     {
         foreach ($data_array as $only_data) {
-            if ($only_data != '.') {
-                $counter = $this->countAndMemForX($counter, $only_data);
+            if ($only_data === '.') {
+                $counter = $this->register($counter);
             }
             else{
-                $counter = $this->register($counter);
+                $counter = $this->countAndMemForX($counter, $only_data);
             }
         }
 
