@@ -28,6 +28,7 @@ class NotFork
     public function dataToArray($data)
     {
         $data_array = str_split($data);
+        
         return $data_array;
     }
 
@@ -41,6 +42,7 @@ class NotFork
                 $counter = $this->register($counter);
             }
         }
+
         return $counter;
     }
 
@@ -73,6 +75,7 @@ class NotFork
         }
         $this->counterReset($counter);
         $counter = $this->xEqualizer($x_counter, $counter);
+
         return $counter;
     }
 
@@ -92,6 +95,7 @@ class NotFork
                 $counter[$i] = $x_counter[$i];
             }
         }
+
         return $counter;
     }
 
@@ -132,6 +136,7 @@ class NotFork
             $counter[$shift_key_arr] += $int_data;
         }
         $this->x_counter = $x_counter;
+
         return $counter;
     }
 
@@ -159,6 +164,7 @@ class NotFork
     public function arrayToString($counter)
     {
         $string_counter = implode(",", $counter);
+
         return $string_counter;
     }
 
