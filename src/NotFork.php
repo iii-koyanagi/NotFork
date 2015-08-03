@@ -21,7 +21,7 @@ class NotFork
     {
         $counter = $this->counter;
         $data_array = $this->dataToArray($data);
-        $counter = $this->counterCalc($counter, $data_array);
+        $counter = $this->branch($counter, $data_array);
         $string_counter = $this->arrayToString($counter);
         $this->string_counter = $string_counter;
         $this->remove();
@@ -34,11 +34,11 @@ class NotFork
         return $data_array;
     }
 
-    public function counterCalc($counter, $data_array)
+    public function branch($counter, $data_array)
     {
         foreach ($data_array as $only_data) {
             if ($only_data != '.') {
-                $counter = $this->check($counter, $only_data);
+                $counter = $this->countAndMemForX($counter, $only_data);
             }
             else{
                 $counter = $this->register($counter);
@@ -99,13 +99,13 @@ class NotFork
         return $counter;
     }
 
-    public function check($counter, $only_data)
+    public function countAndMemForX($counter, $only_data)
     {
         $x_counter = $this->x_counter;
         $x_memory = $this->x_memory;
 
         $int_data = $this->getIntData($only_data);
-        $shift_sort_counter = $this->sort($counter);
+        $shift_sort_counter = $this->sortAndShift($counter);
         $key_arr = $this->getKeyArr($counter, $shift_sort_counter);
 
         $val = $this->getVal($key_arr);
@@ -120,6 +120,27 @@ class NotFork
         $this->x_counter = $x_counter;
 
         return $counter;
+    }
+
+    public function getIntData($only_data)
+    {
+        if ($only_data === 'x') {
+            $int_data = 1;
+        }
+        else {
+            $int_data = intval($only_data);
+        }
+
+        return $int_data;
+    }
+
+    public function sortAndShift($value)
+    {
+        $value_for_sort = $value;
+        asort($value_for_sort);
+        $shift_value = array_shift($value_for_sort);
+
+        return $shift_value;
     }
 
     public function getKeyArr($counter, $shift_sort_counter)
@@ -140,31 +161,10 @@ class NotFork
             $val = $key_arr[0];
         }
         else {
-            $val = $this->sort($key_arr);;
+            $val = $this->sortAndShift($key_arr);;
         }
 
         return $val;
-    }
-
-    public function getIntData($only_data)
-    {
-        if ($only_data === 'x') {
-            $int_data = 1;
-        }
-        else {
-            $int_data = intval($only_data);
-        }
-
-        return $int_data;
-    }
-
-    public function sort($value)
-    {
-        $value_for_sort = $value;
-        asort($value_for_sort);
-        $shift_value = array_shift($value_for_sort);
-
-        return $shift_value;
     }
 
     public function arrayToString($counter)
