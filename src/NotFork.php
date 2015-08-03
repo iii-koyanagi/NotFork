@@ -56,13 +56,11 @@ class NotFork
             if ($x_counter[$i] == 0) {
                 $counter[$i] = $counter[$i] - $minus[$i];
             }
-
             elseif($x_memory[$i] - $minus[$i] < 0) {
                 $counter[$i] = $counter[$i] - $x_memory[$i];
                 $x_memory[$i] = 0;
                 $this->x_memory = $x_memory;
             }
-
             else {
                 $sabun = $x_memory[$i] - $minus[$i];
                 $amari = $counter[$i] - $x_memory[$i];
@@ -113,14 +111,7 @@ class NotFork
             }
         }
 
-        if (count($key_arr) === 1) {
-            $val = $key_arr[0];
-        }
-
-        else {
-            $shift_key_arr = $this->sort($key_arr);
-            $val = $shift_key_arr;
-        }
+        $val = $this->getVal($key_arr);
 
         if ($only_data === 'x') {
             if ($x_counter[$val] === 0) {
@@ -133,6 +124,18 @@ class NotFork
         $this->x_counter = $x_counter;
 
         return $counter;
+    }
+
+    public function getVal($key_arr)
+    {
+        if (count($key_arr) === 1) {
+            $val = $key_arr[0];
+        }
+        else {
+            $val = $this->sort($key_arr);;
+        }
+
+        return $val;
     }
 
     public function getIntData($only_data)
