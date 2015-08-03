@@ -19,9 +19,9 @@ class NotFork
 
     public function run($data)
     {
-        $counter = $this->counter;
+        $orig_counter = $this->counter;
         $data_array = $this->dataToArray($data);
-        $counter = $this->branch($counter, $data_array);
+        $counter = $this->branch($orig_counter, $data_array);
         $string_counter = $this->arrayToString($counter);
         $this->string_counter = $string_counter;
         $this->remove();
